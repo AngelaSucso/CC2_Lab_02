@@ -1,0 +1,36 @@
+//Implementar una función reciba un arreglo de enteros y su tamaño y retorne la suma de los elementos de un arreglo.
+//(Iterativa y recursiva).
+
+#include <iostream>
+using namespace std;
+
+int sumar_iterativa( int A[], int tam){
+	int acum = 0;
+	
+	for(int i=0;i<tam;i++){
+		acum += A[i];
+	}
+	return acum;
+}
+
+int sumar_recursiva( int A[], int tam){
+	if ( tam == 1){
+		return A[tam-1];
+	}
+	else{
+		return A[tam - 1] + sumar_recursiva(A, tam - 1);
+	}
+}
+
+int main(){
+	int array[] = {16, 21, 8, 35, -10};
+	int tamano = sizeof(array) / sizeof(array[0]);
+	
+	int SumaIterativa = sumar_iterativa(array, tamano);
+	int SumaRecursiva = sumar_recursiva(array, tamano);
+	
+	cout<<"La suma iterativa es: "<< SumaIterativa << endl;
+	cout<<"La suma recursiva es: "<< SumaRecursiva << endl;
+	
+	return 0;
+}
