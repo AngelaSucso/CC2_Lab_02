@@ -1,0 +1,31 @@
+//Implementar una función que invierta los elementos de un arreglo de enteros (Iterativa y recursiva).
+
+#include <iostream>
+using namespace std;
+
+void ordenarArray(int array[], int tam){ //Entrada array y su tamaño
+    int aux;
+    for(int i = 0; i < tam; i++){        //Recorremos desde el principio del array hasta el final
+        for(int x = 0; x < tam; x++){    
+            if(array[i] < array[x]){
+                aux = array[x];
+                array[x] = array[i];
+                array[i] = aux;
+            }
+        }
+    }
+    cout << "\nArreglo ordenado: ";
+    for(int i = 0; i < tam; i++){
+        cout << "(" << array[i] << ")";
+    }
+    cout << endl;
+}
+
+
+
+int main(){
+    int arreglo[] = {10,3,1,8,6,4,2,5,9,7};
+    int tam = 10;
+    ordenarArray(arreglo, tam);
+ 
+}
