@@ -1,0 +1,60 @@
+/Implemente una función que reciba una cadena y retorne su tamaño. (Iterativa y recursiva)
+
+#include <iostream>
+using namespace std;
+
+//ITERATIVA
+int cont1(int array[])
+{
+    int num = 0;
+    while(array[num])
+    {
+        num = num + 1;
+    }
+    return num; 
+}
+
+int cont2(int array[], int num)
+{
+    if (array[num])
+        return cont2(array, num+1) + 1;
+    else 
+        return 0;
+        
+}
+
+
+//RECURSIVA
+int longitudArreglo(int A[], int N)
+{
+    int acum =0;
+    if (N <= 0)
+        return 0;
+    return (longitudArreglo(A, N - 1) + 1);
+}
+
+int main()
+{
+	//ITERATIVA
+    int tam; 
+    cout<<"Ingrese cantidad de elementos: "; //colocar 7
+    cin>>tam; 
+    int array[tam];
+    for(int i=0; i<tam; i++)
+    {
+        cout<<"Ingrese elemento: "; 
+        cin>>array[i];
+    }
+    
+    int cont;
+
+    cont = cont2(array, 0);
+    cout<<"Los longitud del array es: " << cont<<" elementos."; 
+    
+    //RECURSIVA
+    int arreglo[] = {3,1,8,4,5,9,7};
+    int tam2 = 7;
+    cout<<"\nLa longitud del array es: "<<longitudArreglo(arreglo, tam2)<<endl;
+    
+    return 0;
+}
