@@ -1,0 +1,52 @@
+//Implementar una función que invierta los elementos de un arreglo de enteros (Iterativa y recursiva).
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int *iterativa(int array[],int n){
+	int *e = new int[n];
+	for(int i=0;i<n;i++){
+		e[i]=array[n-i-1];
+	}
+	return e;
+}
+
+void recursiva(int array[],int n,int as[],int g){	
+	
+	if(n!=0){ //que no este vacio
+		as[g]=array[n-1];
+		recursiva(array,n-1,as,g+1);
+	}
+	else{
+		as[g]=array[n];
+	}
+}
+
+int main(){
+	int n=10;
+	int array[n];
+	for(int i=0;i<n;i++){
+		array[i]=rand()%20;
+		cout<<array[i]<<" ";
+	}
+	//forma iterativa
+	cout<<'\n';
+	cout<<'\n';
+	int *s=iterativa(array,n);
+	cout<<"De forma iterativa: ";
+	for(int i=0;i<n;i++){
+		cout<<s[i]<<" ";
+	}
+	
+	//forma recursiva
+	cout<<'\n';
+	int as[n],g=0;
+	cout<<"De forma recursiva: ";
+	recursiva(array,n,as,g);
+	for(int i=0;i<n;i++){
+		cout<<as[i]<<" ";
+	}
+	
+	
+	return 0;
+}
