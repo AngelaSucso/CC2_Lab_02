@@ -1,0 +1,30 @@
+//Implemente una función que reciba dos cadenas a y b; y copie los elementos de la cadena a para la cadena b.
+
+#include <iostream>
+using namespace std;
+
+void swap(char &a, char &b)
+{
+    char s = a;
+    a = b;
+    b = s;
+}
+
+void copy(char A[], char B[])
+{
+    for(int i=0; i<20; i++)
+    {
+        swap(B[i], A[i]);
+    }
+}
+
+int main()
+{
+    char a[20];
+    char b[20];
+    cout<<"Digite la cadena a: "<< endl; cin>>a;
+    cout<<"Digite la cadena b: "<< endl; cin>>b;
+    copy(a, b);
+    cout<<b;
+    return 0;
+}
